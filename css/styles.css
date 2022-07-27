@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+}
+
+
+#home{
+    background-color: #DAE2B6;
+}
+header{
+    background-color:#CCD6A6;
+}
+header ul li{
+    text-decoration: none;
+}
+header ul li a{
+    text-decoration: none;
+     font-weight: bold;
+     text-transform: uppercase;
+}
+.nav-link{
+    color: black;
+}
+#nosotros{
+    font-size: 20px;
+    
+}
+#nosotros p{
+    font-weight: lighter ;
+    text-align: justify;
+    line-height: 50px;
+}
+.card{
+    background-color: #DFE8CC;
+    height: 500px;
+}
+
+.card-text{
+    font-weight: bold;
+}
+
+.card a {
+    background-color: rgba(196, 141, 21, 0.671);
+}
+#footer{
+    background-color: #F7EDDB;
+}
+#botonCarrito{
+    position: fixed;
+    margin-right:20px;
+    line-height: 55px;
+    bottom: 100px;
+    z-index: 100;
+}
+
