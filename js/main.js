@@ -59,6 +59,7 @@ productosAgregados.innerHTML = "";
           let subTotal = producto.precio * producto.cantidad;
           totalProductos += producto.cantidad;
             
+            
             productosAgregados = document.createElement("div");
             productosAgregados.innerHTML = `
                                             <div>   
@@ -70,15 +71,16 @@ productosAgregados.innerHTML = "";
                 total += subTotal;
                 
                 
-                
-                
-                
-                
+              
          })
 
-        const sumarCarrito = document.createElement("div");
-        sumarCarrito.innerHTML = `${totalProductos}`;
-        document.getElementById("carrito").appendChild(sumarCarrito);
+
+         
+    //    let sumarCarrito = document.createElement("div");
+    //         recibirProductosDelCarritoLS(productosElegidos);
+    //         sumarCarrito.innerHTML = `${totalProductos}`
+
+    //     document.getElementById("carrito").appendChild(sumarCarrito);
         
          
          const totalCompra = document.createElement("div");
@@ -91,6 +93,9 @@ productosAgregados.innerHTML = "";
                                  
                                   `;
                 document.getElementById("productosElegidos").appendChild(totalCompra);
+
+
+                
         
             agregarEnvio = () =>{
 
@@ -153,7 +158,8 @@ const envioGratis = () =>{
 const agregarAlCarrito= (indice) => {
     recibirProductosDelCarritoLS();   
     let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
-        return elemento.id === productos[indice].id;           
+        return elemento.id === productos[indice].id;
+                   
     })
     let agregarProducto = productos[indice];
     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
