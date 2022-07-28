@@ -27,29 +27,32 @@ const crearCardsDeProductos = (data) =>{
         });
 
 }
-let productosAgregados = document.getElementById("productosElegidos");
-const generarCarrito = () =>{
-    
-productosAgregados = document.getElementById("productosElegidos");
-productosAgregados.innerHTML = "";
-    if (productosElegidos.length > 0){ 
-        let total = 0;
-        let totalProductos = 0;
-        productosElegidos.forEach((producto, indice) => { 
-          let subTotal = producto.precio * producto.cantidad;
-          totalProductos += producto.cantidad;
-            
-            
-            productosAgregados = document.createElement("div");
-            productosAgregados.innerHTML = `
-                                            <div>   
-                                            <p class= "mt-3"> Producto: ${producto.producto} X <button class="btn-sm btn-warning" type="submit" >-</button> ${producto.cantidad} <button class="btn-sm btn-warning" type="submit" onclick="sumarUno(${indice})">+</button> SubTotal de $ ${producto.precio * producto.cantidad}
-                                           
-                                            <a class="btn btn-sm btn-danger mb-2" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
-                                            </div>`;
 
-                document.getElementById("productosElegidos").appendChild(productosAgregados);
-                total += subTotal;
+        let productosAgregados = document.getElementById("productosElegidos");
+        productosAgregados.innerHTML = `<img text-center src='images/carrito_vacio-removebg-preview.png'width=200 height=200>`;
+       
+const generarCarrito = () =>{  
+
+    productosAgregados = document.getElementById("productosElegidos");
+    productosAgregados.innerHTML = "";
+        if (productosElegidos.length > 0){ 
+            let total = 0;
+            let totalProductos = 0;
+            productosElegidos.forEach((producto, indice) => { 
+            let subTotal = producto.precio * producto.cantidad;
+            totalProductos += producto.cantidad;
+                
+                
+                productosAgregados = document.createElement("div");
+                productosAgregados.innerHTML = `
+                                                <div>   
+                                                <p class= "mt-3"> Producto: ${producto.producto} X <button class="btn-sm btn-warning" type="submit" >-</button> ${producto.cantidad} <button class="btn-sm btn-warning" type="submit" onclick="sumarUno(${indice})">+</button> SubTotal de $ ${producto.precio * producto.cantidad}
+                                            
+                                                <a class="btn btn-sm btn-danger mb-2" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
+                                                </div>`;
+
+                    document.getElementById("productosElegidos").appendChild(productosAgregados);
+                    total += subTotal;
                               
          })
 
@@ -91,6 +94,10 @@ productosAgregados.innerHTML = "";
                 
                 
             } 
+}else{
+    productosAgregados = document.getElementById("productosElegidos");
+        productosAgregados.innerHTML = `<img src='images/carrito_vacio-removebg-preview.png'width=60 height=60>`;
+        document.getElementById("productosElegidos").appendChild(productosAgregados);
 }
 }
 
@@ -139,6 +146,7 @@ const agregarAlCarrito= (indice) => {
     let agregarProducto = productos[indice];
     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());    
 }
+
 
 const vaciarCarrito = (indice) =>{  
     productosElegidos.splice(indice);
