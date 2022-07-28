@@ -1,37 +1,17 @@
 
-//ARRAY DE OBJETOS DE MIS PRODUCTOS
+let productos = [];
 
-const productos = [
-    {id:1, producto: "Pan Baguette", descripcion: "Pan Baguette realizado con masa madre", precio: 200, imagen:"baguette.png"}, 
-    {id:2, producto: "Pan Lactal Blanco", descripcion: "Pan de molde 100% harina blanca y sémola.", precio: 350, imagen:"lactalblanco.png"}, 
-    {id:3, producto: "Pan Lactal Integral", descripcion: "Pan de molde 50% harina integral 50% harina blanca y sémola.", precio: 400, imagen:"lactalintegral.png"},
-    {id:4, producto: "Pan Masa Madre Blanco", descripcion: "Hogaza 90% harina blanca y 10% sémola. Realizada con masa madre de centeno", precio: 450, imagen:"masamadreblanco.png"},
-    {id:5, producto: "Pan Masa Madre Integral", descripcion: "Hogaza 50% harina blanca y 50% Integral. Realizada con masa madre de centeno", precio: 500, imagen:"masamadreintegral.png"},
-    {id:6, producto: "Medialunas de Manteca", descripcion: "Medialunas de manteca realizadas con triple fermentación 72hs.", precio: 100, imagen:"medialunas.png"},
-    {id:7, producto: "Pan de Hamburguesa", descripcion: "Pan de hamburguesa elaborado con harinas organicas y manteca", precio: 100, imagen:"hamburgesa.png"},
-    {id:8, producto: "Pan dulce", descripcion: "Verdadero Pan Dulce, con muchos frutos secos y naranjas confitadas", precio: 650, imagen:"pandulce.png"},
-    {id:9, producto: "Focaccia Italiana", descripcion: "Focaccia elaborada con masa madre y fermentación 48 hs", precio: 850, imagen:"panfocaccia.png"},
-    {id:10, producto: "Pan Ciabatta", descripcion: "Pan italiano clásico con un alto contenido líquido, reconocible por el gran panal de la miga.", precio: 250, imagen:"panciabatta.png"}
- ];
+fetch('js/productos.json')
+.then((resultado) => resultado.json())
+.then((data) =>{
+        crearCardsDeProductos(data);
+});
 
 const productosElegidos = [];
 
-class Productos {
-    constructor (producto, precio,id){
-        this.id = id;
-        this.producto = producto;
-        this.precio = parseFloat(precio);
-        this.iva = 1.21;
-        this.envio = 200;
-    }
 
-    sumarIva(){
-        this.precio= this.precio * this.iva;
-    }
-}
-
-const crearCardsDeProductos = () =>{
-    let productos = recibirProductosLS ();
+const crearCardsDeProductos = (data) =>{
+    productos = data;
     productos.forEach((producto,indice) => {
         let div = document.createElement("div");
         div.className = "col";
@@ -63,24 +43,19 @@ productosAgregados.innerHTML = "";
             productosAgregados = document.createElement("div");
             productosAgregados.innerHTML = `
                                             <div>   
-                                            <p class= "mt-3"> Producto: ${producto.producto} x ${producto.cantidad} -- SubTotal de $ ${producto.precio * producto.cantidad}
+                                            <p class= "mt-3"> Producto: ${producto.producto} X <button class="btn-sm btn-warning" type="submit" >-</button> ${producto.cantidad} <button class="btn-sm btn-warning" type="submit" onclick="sumarUno(${indice})">+</button> SubTotal de $ ${producto.precio * producto.cantidad}
                                            
                                             <a class="btn btn-sm btn-danger mb-2" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
-                                            </div>`;                                               
+                                            </div>`;
+
                 document.getElementById("productosElegidos").appendChild(productosAgregados);
                 total += subTotal;
-                
-                
-              
+                              
          })
 
-
-         
-    //    let sumarCarrito = document.createElement("div");
-    //         recibirProductosDelCarritoLS(productosElegidos);
-    //         sumarCarrito.innerHTML = `${totalProductos}`
-
-    //     document.getElementById("carrito").appendChild(sumarCarrito);
+         const sumarCarrito = document.createElement("div");
+         sumarCarrito.innerHTML = `${totalProductos}`;
+         document.getElementById("carrito").appendChild(sumarCarrito);
         
          
          const totalCompra = document.createElement("div");
@@ -162,9 +137,7 @@ const agregarAlCarrito= (indice) => {
                    
     })
     let agregarProducto = productos[indice];
-    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
-
-    
+    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());    
 }
 
 const vaciarCarrito = (indice) =>{  
@@ -195,8 +168,8 @@ const guardarProductosDelCarritoLS = (productosElegidos) =>{
 }
 
 
-guardarProductosLS(productos);
-crearCardsDeProductos();
+
+
 
 
 

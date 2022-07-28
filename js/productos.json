@@ -1,0 +1,12 @@
+[
+    {"id":1, "producto": "Pan Baguette", "descripcion": "Pan Baguette realizado con masa madre", "precio": 200, "imagen":"baguette.png"}, 
+    {"id":2, "producto": "Pan Lactal Blanco", "descripcion": "Pan de molde 100% harina blanca y sémola.", "precio": 350, "imagen":"lactalblanco.png"}, 
+    {"id":3, "producto": "Pan Lactal Integral", "descripcion": "Pan de molde 50% harina integral 50% harina blanca y sémola.", "precio": 400, "imagen":"lactalintegral.png"},
+    {"id":4, "producto": "Pan Masa Madre Blanco", "descripcion": "Hogaza 90% harina blanca y 10% sémola. Realizada con masa madre de centeno", "precio": 450, "imagen":"masamadreblanco.png"},
+    {"id":5, "producto": "Pan Masa Madre Integral", "descripcion": "Hogaza 50% harina blanca y 50% Integral. Realizada con masa madre de centeno", "precio": 500, "imagen":"masamadreintegral.png"},
+    {"id":6, "producto": "Medialunas de Manteca", "descripcion": "Medialunas de manteca realizadas con triple fermentación 72hs.", "precio": 100, "imagen":"medialunas.png"},
+    {"id":7, "producto": "Pan de Hamburguesa", "descripcion": "Pan de hamburguesa elaborado con harinas organicas y manteca", "precio": 100, "imagen":"hamburgesa.png"},
+    {"id":8, "producto": "Pan dulce", "descripcion": "Verdadero Pan Dulce, con muchos frutos secos y naranjas confitadas", "precio": 650, "imagen":"pandulce.png"},
+    {"id":9, "producto": "Focaccia Italiana", "descripcion": "Focaccia elaborada con masa madre y fermentación 48 hs", "precio": 850, "imagen":"panfocaccia.png"},
+    {"id":10, "producto": "Pan Ciabatta", "descripcion": "Pan italiano clásico con un alto contenido líquido, reconocible por el gran panal de la miga.", "precio": 250, "imagen":"panciabatta.png"}
+ ]
