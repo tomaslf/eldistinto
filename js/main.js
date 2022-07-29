@@ -29,7 +29,11 @@ const crearCardsDeProductos = (data) =>{
 }
 
         let productosAgregados = document.getElementById("productosElegidos");
-        productosAgregados.innerHTML = `<img text-center src='images/carrito_vacio-removebg-preview.png'width=200 height=200>`;
+        productosAgregados.innerHTML = `<img class="mt-5 ms-5" src='images/carritovacio.png'width=200 height=200>
+                                        <div class="alert alert-danger text-center" role="alert">
+                                        Tu carrito no tiene ningun producto
+                                        </div>
+                                        `;
        
 const generarCarrito = () =>{  
 
@@ -55,11 +59,11 @@ const generarCarrito = () =>{
                     total += subTotal;
                               
          })
-
+         
          const sumarCarrito = document.createElement("div");
          sumarCarrito.innerHTML = `${totalProductos}`;
          document.getElementById("carrito").appendChild(sumarCarrito);
-        
+         
          
          const totalCompra = document.createElement("div");
          totalCompra.innerHTML = `<div id="total" class="text-center"> TOTAL $${total * 1.21} IVA Incluído </div>
@@ -94,10 +98,13 @@ const generarCarrito = () =>{
                 
                 
             } 
-}else{
-    productosAgregados = document.getElementById("productosElegidos");
-        productosAgregados.innerHTML = `<img src='images/carrito_vacio-removebg-preview.png'width=60 height=60>`;
-        document.getElementById("productosElegidos").appendChild(productosAgregados);
+    }else{
+        productosAgregados = document.getElementById("productosElegidos");
+        productosAgregados.innerHTML = `<img class="mt-5 ms-5" src='images/carritovacio.png'width=200 height=200>
+                                        <div class="alert alert-danger text-center" role="alert">
+                                        Tu carrito no tiene ningun producto
+                                        </div>`;
+                document.getElementById("productosElegidos").appendChild(productosAgregados);
 }
 }
 
