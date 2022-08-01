@@ -29,7 +29,7 @@ const crearCardsDeProductos = (data) =>{
 }
 
     let productosAgregados = document.getElementById("productosElegidos");
-        productosAgregados.innerHTML = `<img id="canasta"  class="mt-5" src='images/canastavacia.png'width=200 height=200>
+       productosAgregados.innerHTML = `<img id="canasta"  class="mt-5" src='images/canastavacia.png'width=200 height=200>
                                         <div class="alert alert-danger text-center" role="alert">
                                         Tu carrito no tiene ningun producto
                                         </div>
@@ -41,10 +41,10 @@ const generarCarrito = () =>{
     productosAgregados.innerHTML = "";
         if (productosElegidos.length > 0){ 
             let total = 0;
-            let totalProductos = 0;
             productosElegidos.forEach((producto, indice) => { 
             let subTotal = producto.precio * producto.cantidad;
-            totalProductos += producto.cantidad
+           
+           
                 
                 
                 productosAgregados = document.createElement("div");
@@ -57,13 +57,12 @@ const generarCarrito = () =>{
 
                     document.getElementById("productosElegidos").appendChild(productosAgregados);
                     total += subTotal;
+                    sumarAlCarrito();
                               
          })
          
-        
-        sumarCarrito =  document.createElement("div");
-                sumarCarrito.innerHTML = `${totalProductos}`;
-                document.getElementById("carrito").appendChild(sumarCarrito);
+         
+         
                 
               
                   
@@ -106,6 +105,20 @@ const generarCarrito = () =>{
                                         </div>`;
                 document.getElementById("productosElegidos").appendChild(productosAgregados);
 }
+}
+
+const sumarAlCarrito = () =>{
+    let productos = recibirProductosDelCarritoLS();
+    let contenido = `0`;
+    let totalProductos = 0;
+    if (productos.length > 0){
+        for (let producto of productos){
+            totalProductos += producto.cantidad;
+            
+        }
+       contenido = `${totalProductos}`;
+    }
+    document.getElementById("carrito").innerHTML = contenido;
 }
 
 const sumarEnvio = () =>{
@@ -152,8 +165,6 @@ const agregarAlCarrito= (indice) => {
                    
     })
     let agregarProducto = productos[indice];
-    let totalProductos = 0;
-    totalProductos += agregarProducto.cantidad;
     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito()); 
     
     
@@ -163,6 +174,7 @@ const agregarAlCarrito= (indice) => {
 const vaciarCarrito = (indice) =>{  
     productosElegidos.splice(indice);
     guardarProductosDelCarritoLS(productosElegidos);
+    sumarAlCarrito();
     generarCarrito();  
 } 
 
