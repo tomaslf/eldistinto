@@ -20,7 +20,7 @@ const crearCardsDeProductos = (data) =>{
                         <h5 class="card-title text-start ms-1" id="producto"><strong>${producto.producto} </h5>
                         <p class="card-text text-start fw-lighter ms-1"> ${producto.descripcion} </p>
                         <p class="card-text text-center"><strong>$ ${producto.precio} por unidad</p>
-                        <a class="btn btn-warning" onclick="agregarAlCarrito(${indice})">Agregar</a>
+                        <a class="btn btn-warning"  onclick="agregarAlCarrito(${indice})">Agregar</a>
                         </div>`
         document.getElementById("cards").appendChild(div);
        
@@ -29,7 +29,7 @@ const crearCardsDeProductos = (data) =>{
 }
 
         let productosAgregados = document.getElementById("productosElegidos");
-        productosAgregados.innerHTML = `<img class="mt-5 ms-5" src='images/carritovacio.png'width=200 height=200>
+        productosAgregados.innerHTML = `<img id="canasta"  class="mt-5" src='images/canastavacia.png'width=200 height=200>
                                         <div class="alert alert-danger text-center" role="alert">
                                         Tu carrito no tiene ningun producto
                                         </div>
@@ -44,7 +44,7 @@ const generarCarrito = () =>{
             let totalProductos = 0;
             productosElegidos.forEach((producto, indice) => { 
             let subTotal = producto.precio * producto.cantidad;
-            totalProductos += producto.cantidad;
+            totalProductos += producto.cantidad
                 
                 
                 productosAgregados = document.createElement("div");
@@ -59,12 +59,12 @@ const generarCarrito = () =>{
                     total += subTotal;
                               
          })
-         
-         const sumarCarrito = document.createElement("div");
-         sumarCarrito.innerHTML = `${totalProductos}`;
-         document.getElementById("carrito").appendChild(sumarCarrito);
-         
-         
+        
+        sumarCarrito =  document.createElement("div");
+                sumarCarrito.innerHTML = `${totalProductos}`;
+                document.getElementById("carrito").appendChild(sumarCarrito);
+              
+                  
          const totalCompra = document.createElement("div");
          totalCompra.innerHTML = `<div id="total" class="text-center"> TOTAL $${total * 1.21} IVA Incluído </div>
                                 <button type="button" class="btn btn-danger ms-2 mb-3 mt-3 "  onclick=vaciarCarrito() > Vaciar Carrito
@@ -76,8 +76,6 @@ const generarCarrito = () =>{
                                   `;
                 document.getElementById("productosElegidos").appendChild(totalCompra);
 
-
-                
         
             agregarEnvio = () =>{
 
@@ -98,9 +96,9 @@ const generarCarrito = () =>{
                 
                 
             } 
-    }else{
+            }else{
         productosAgregados = document.getElementById("productosElegidos");
-        productosAgregados.innerHTML = `<img class="mt-5 ms-5" src='images/carritovacio.png'width=200 height=200>
+        productosAgregados.innerHTML = `<img id="canasta"  class="mt-5" src='images/canastavacia.png'width=200 height=200>
                                         <div class="alert alert-danger text-center" role="alert">
                                         Tu carrito no tiene ningun producto
                                         </div>`;
