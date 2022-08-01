@@ -28,7 +28,7 @@ const crearCardsDeProductos = (data) =>{
 
 }
 
-        let productosAgregados = document.getElementById("productosElegidos");
+    let productosAgregados = document.getElementById("productosElegidos");
         productosAgregados.innerHTML = `<img id="canasta"  class="mt-5" src='images/canastavacia.png'width=200 height=200>
                                         <div class="alert alert-danger text-center" role="alert">
                                         Tu carrito no tiene ningun producto
@@ -59,10 +59,12 @@ const generarCarrito = () =>{
                     total += subTotal;
                               
          })
+         
         
         sumarCarrito =  document.createElement("div");
                 sumarCarrito.innerHTML = `${totalProductos}`;
                 document.getElementById("carrito").appendChild(sumarCarrito);
+                
               
                   
          const totalCompra = document.createElement("div");
@@ -142,6 +144,7 @@ const envioGratis = () =>{
       })
 }
 
+
 const agregarAlCarrito= (indice) => {
     recibirProductosDelCarritoLS();   
     let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
@@ -149,9 +152,13 @@ const agregarAlCarrito= (indice) => {
                    
     })
     let agregarProducto = productos[indice];
-    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());    
+    let totalProductos = 0;
+    totalProductos += agregarProducto.cantidad;
+    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito()); 
+    
+    
+    
 }
-
 
 const vaciarCarrito = (indice) =>{  
     productosElegidos.splice(indice);
