@@ -42,11 +42,7 @@ const generarCarrito = () =>{
         if (productosElegidos.length > 0){ 
             let total = 0;
             productosElegidos.forEach((producto, indice) => { 
-            let subTotal = producto.precio * producto.cantidad;
-           
-           
-                
-                
+            let subTotal = producto.precio * producto.cantidad;                
                 productosAgregados = document.createElement("div");
                 productosAgregados.innerHTML = `
                                                 <div>   
@@ -59,13 +55,7 @@ const generarCarrito = () =>{
                     total += subTotal;
                     sumarAlCarrito();
                               
-         })
-         
-         
-         
-                
-              
-                  
+         })                  
          const totalCompra = document.createElement("div");
          totalCompra.innerHTML = `<div id="total" class="text-center"> TOTAL $${total * 1.21} IVA Incluído </div>
                                 <button type="button" class="btn btn-danger ms-2 mb-3 mt-3 "  onclick=vaciarCarrito() > Vaciar Carrito
@@ -161,14 +151,10 @@ const envioGratis = () =>{
 const agregarAlCarrito= (indice) => {
     recibirProductosDelCarritoLS();   
     let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
-        return elemento.id === productos[indice].id;
-                   
+        return elemento.id === productos[indice].id;                   
     })
     let agregarProducto = productos[indice];
-    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito()); 
-    
-    
-    
+    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());     
 }
 
 const vaciarCarrito = (indice) =>{  
@@ -182,7 +168,7 @@ const eliminarDelCarrito = (indice) =>{
     productosElegidos.splice(indice,1);
     guardarProductosDelCarritoLS(productosElegidos);
     generarCarrito();  
-} 
+}
 
 const recibirProductosLS= () =>{
     return JSON.parse(localStorage.getItem("productos")) || productosElegidos;
