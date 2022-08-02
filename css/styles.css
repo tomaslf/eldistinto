@@ -54,5 +54,18 @@ header ul li a{
     z-index: 100;
 }
 #canasta{
-    margin-left: 75px;
+    margin-left: 125px;
+}
+.offcanvas{
+    width: 500px;
+}
+#botonFinalizar {
+    margin-left: 150px;
+}
+#total{
+    background-color: rgba(196, 141, 21, 0.671);
+}
+#botones{
+    display: flex;
+    justify-content: center;
 }

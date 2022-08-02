@@ -8,6 +8,19 @@ const agregarAlCarrito= (indice) => {
     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());     
 }
 
+
+// const sumarUno = (indice) =>{   
+//     recibirProductosDelCarritoLS();   
+//     let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
+//         return elemento.id === productos[indice].id;                   
+//     })
+//     let agregarProducto = productos[indice];
+//     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito()); 
+   
+// }
+
+
+
 const sumarAlCarrito = () =>{
     let productos = recibirProductosDelCarritoLS();
     let contenido = `0`;
@@ -34,11 +47,15 @@ const eliminarDelCarrito = (indice) =>{
     sumarAlCarrito();
     generarCarrito();  
 }
-
+    
 const buscarProductoId = (indice) =>{
     let productos = recibirProductosLS();
     return productos.findIndex(element => element.indice == indice);
 }
+
+
+
+
 
 // FUNCIONES DE STORAGE
 const recibirProductosLS= () =>{

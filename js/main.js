@@ -45,8 +45,8 @@ const generarCarrito = () =>{
             let subTotal = producto.precio * producto.cantidad;                
                 productosAgregados = document.createElement("div");
                 productosAgregados.innerHTML = `
-                                                <div>   
-                                                <p class= "mt-3"> Producto: ${producto.producto} X <button class="btn-sm btn-warning" type="submit" >-</button> ${producto.cantidad} <button class="btn-sm btn-warning" type="submit" onclick="sumarUno(${indice})">+</button> SubTotal de $ ${producto.precio * producto.cantidad}
+                                                <div class="divProductos">   
+                                                <p class= "mt-3"> Producto: ${producto.producto} X <button class="btn-sm btn-warning" type="submit" onclick="restarUno(${indice})" >-</button> ${producto.cantidad} <button class="btn-sm btn-warning" type="submit" onclick="sumarUno(${indice})">+</button> SubTotal de $ ${producto.precio * producto.cantidad}
                                             
                                                 <a class="btn btn-sm btn-danger mb-2" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
                                                 </div>`;
@@ -57,23 +57,27 @@ const generarCarrito = () =>{
                               
          })                  
          const totalCompra = document.createElement("div");
-         totalCompra.innerHTML = `<div id="total" class="text-center"> TOTAL $${total * 1.21} IVA Incluído </div>
-                                <button type="button" class="btn btn-danger ms-2 mb-3 mt-3 "  onclick=vaciarCarrito() > Vaciar Carrito
-                                <button type="button" class="btn btn-secondary ms-2 mb-3 mt-3"  onclick=agregarEnvio() > Agregar Envío <img src='images/bicycle.svg'width=20 height=20>
-                                <button type="button" onclick="finalizarCompra()" class="btn btn-success ms-2 mb-3 mt-3 d-flex justify-content-center">
+         totalCompra.innerHTML = `<div id="total" class="text-center mt-2"> TOTAL $${total * 1.21} IVA Incluído </div>
+                                <div id="botones">
+                                <button type="button" class="btn btn-danger ms-2 mb-3 mt-3 "  onclick="vaciarCarrito()" > Vaciar Carrito
+                                <button type="button" class="btn btn-secondary ms-2 mb-3 mt-3"  onclick="agregarEnvio()" > Agregar Envío <img src='images/bicycle.svg'width=20 height=20>
+                                </div>
+                                <div>
+                                <button type="button" id="botonFinalizar" onclick="finalizarCompra()" class="btn btn-success mt-2">
                                 Finalizar Compra
                                 </button>
+                                </div>
                                  
                                   `;
                 document.getElementById("productosElegidos").appendChild(totalCompra);
 
-        
+            
             agregarEnvio = () =>{
 
                 if (total > 3000){
                     let agregarEnvio = document.createElement("div");
-                    agregarEnvio.innerHTML = `<div class="alert alert-success text-center">Tenes el envío bonificado</div>
-                                                <div class="text-center"><strong>TOTAL con envío $${total * 1.21}</div> `
+                    agregarEnvio.innerHTML = `<div class="alert alert-success text-center mt-2 mb-2">Tenes el envío bonificado</div>
+                                                <div class="text-center mt-2 mb-2"><strong>TOTAL con envío $${total * 1.21}</div> `
                     document.getElementById("total").appendChild(agregarEnvio);
                     envioGratis();
                     
