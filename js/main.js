@@ -97,30 +97,16 @@ const generarCarrito = () =>{
 }
 }
 
-const sumarAlCarrito = () =>{
-    let productos = recibirProductosDelCarritoLS();
-    let contenido = `0`;
-    let totalProductos = 0;
-    if (productos.length > 0){
-        for (let producto of productos){
-            totalProductos += producto.cantidad;
-            
-        }
-       contenido = `${totalProductos}`;
-    }
-    document.getElementById("carrito").innerHTML = contenido;
-}
 
 const sumarEnvio = () =>{
     Swal.fire({
-        title: 'Agregaste el envío a tu pedido',
+        text: 'Agregaste a tu pedido el envío. Su costo es $200.',
         imageUrl: 'images/bicienvio.png',
-        imageWidth: 400,
-        imageHeight: 250,
+        imageWidth: 300,
+        imageHeight: 200,
         imageAlt: 'Custom image',
         showClass: {
-        popup: 'animate__animated animate__fadeInRight',
-        
+        popup: 'animate__animated animate__fadeInRight',        
         },
         hideClass: {
           popup: 'animate__animated animate__fadeOutLeft'
@@ -148,42 +134,9 @@ const envioGratis = () =>{
 }
 
 
-const agregarAlCarrito= (indice) => {
-    recibirProductosDelCarritoLS();   
-    let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
-        return elemento.id === productos[indice].id;                   
-    })
-    let agregarProducto = productos[indice];
-    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());     
-}
 
-const vaciarCarrito = (indice) =>{  
-    productosElegidos.splice(indice);
-    guardarProductosDelCarritoLS(productosElegidos);
-    sumarAlCarrito();
-    generarCarrito();  
-} 
 
-const eliminarDelCarrito = (indice) =>{  
-    productosElegidos.splice(indice,1);
-    guardarProductosDelCarritoLS(productosElegidos);
-    generarCarrito();  
-}
 
-const recibirProductosLS= () =>{
-    return JSON.parse(localStorage.getItem("productos")) || productosElegidos;
-}
-
-const guardarProductosLS = (productos) =>{
-    localStorage.setItem("productos", JSON.stringify(productos));
-}
-const recibirProductosDelCarritoLS= () =>{
-    return JSON.parse(localStorage.getItem("productosElegidos"));
-}
-
-const guardarProductosDelCarritoLS = (productosElegidos) =>{
-    localStorage.setItem("productosElegidos", JSON.stringify(productosElegidos));
-}
 
 
 
