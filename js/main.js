@@ -47,7 +47,7 @@ const generarCarrito = () =>{
                 productosAgregados.innerHTML = `
                                                 <div class="divProductos">
                                                 
-                                                <p class= "mt-3 p-2"> <img src='images/${producto.imagen} 'width=70 height=70> ${producto.producto}<button type="button" class="btn-sm btn-secondary ms-1 me-1" onclick="sumarUno(${indice})">-</button><strong> ${producto.cantidad}</strong><button type="button" class="btn-sm btn-secondary me-1 ms-2" onclick="sumarUno(${indice})">+</button>  SubTotal de $ ${producto.precio * producto.cantidad}
+                                                <p class= "mt-3 p-2"> <img src='images/${producto.imagen} 'width=70 height=70> ${producto.producto}<button type="button" class="btn-sm btn-secondary ms-1 me-1" onclick="restarUno(${indice})">-</button><strong> ${producto.cantidad}</strong><button type="button" class="btn-sm btn-secondary me-1 ms-2" onclick="sumarUno(${indice})">+</button>  SubTotal de $ ${producto.precio * producto.cantidad}
                                                 <a class="btn btn-sm btn-danger mb-2 align-items-center" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
                                                 
                                                 </div>`;

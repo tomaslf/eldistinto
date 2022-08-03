@@ -9,17 +9,20 @@ const agregarAlCarrito= (indice) => {
 }
 
 const sumarUno = (indice) =>{
-    recibirProductosDelCarritoLS();
-    
-      
+    recibirProductosDelCarritoLS();      
     let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
         return elemento.id === productosElegidos[indice].id;                   
-    })
-    
+    })    
     let agregarProducto = productos[indice];
     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1, productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
-
-
+}
+const restarUno = (indice) =>{
+    recibirProductosDelCarritoLS();      
+    let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
+        return elemento.id === productosElegidos[indice].id;                   
+    })    
+    let agregarProducto = productos[indice];
+    (indiceEncontrado === -1) ? (agregarProducto.cantidad -=1, productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad -= 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
 }
 
 const sumarAlCarrito = () =>{
