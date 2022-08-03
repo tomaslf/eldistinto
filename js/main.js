@@ -46,7 +46,7 @@ const generarCarrito = () =>{
                 productosAgregados = document.createElement("div");
                 productosAgregados.innerHTML = `
                                                 <div class="divProductos">
-                                                   
+                                                
                                                 <p class= "mt-3"> <img src='images/${producto.imagen} 'width=70 height=70> Producto: ${producto.producto} X <strong> ${producto.cantidad}</strong>  SubTotal de $ ${producto.precio * producto.cantidad}
                                                 <a class="btn btn-sm btn-danger mb-2 align-items-center" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
                                                 
