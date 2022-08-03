@@ -45,10 +45,11 @@ const generarCarrito = () =>{
             let subTotal = producto.precio * producto.cantidad;                
                 productosAgregados = document.createElement("div");
                 productosAgregados.innerHTML = `
-                                                <div class="divProductos">   
-                                                <p class= "mt-3"> Producto: ${producto.producto} X <button class="btn-sm btn-warning" type="submit" onclick="restarUno(${indice})" >-</button> ${producto.cantidad} <button class="btn-sm btn-warning" type="submit" onclick="sumarUno(${indice})">+</button> SubTotal de $ ${producto.precio * producto.cantidad}
-                                            
-                                                <a class="btn btn-sm btn-danger mb-2" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
+                                                <div class="divProductos">
+                                                   
+                                                <p class= "mt-3"> <img src='images/${producto.imagen} 'width=70 height=70> Producto: ${producto.producto} X <strong> ${producto.cantidad}</strong>  SubTotal de $ ${producto.precio * producto.cantidad}
+                                                <a class="btn btn-sm btn-danger mb-2 align-items-center" onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p>
+                                                
                                                 </div>`;
 
                     document.getElementById("productosElegidos").appendChild(productosAgregados);
@@ -117,14 +118,23 @@ const sumarEnvio = () =>{
         }
       })
 }
-const finalizarCompra = () =>{
-    
-    Swal.fire({
-         title:  'Gracias por tu compra.',
-         text: ' Te llegará un mail a la brevedad con la factura de la misma.',
-         icon: 'success'
-    });
+async function finalizarCompra () {     
+    const {} = await Swal.fire({
+        title: 'Ingresa tu email',
+        input: 'email',
+        inputLabel: 'Aqui enviaremos la factura de tu compra',
+        inputPlaceholder: 'Ingresa tu mail'
+      })  
+    gracias();  
     vaciarCarrito();
+    
+}
+const gracias = () =>{
+    Swal.fire({
+        title:  'Gracias por tu compra.',
+        text: ' Te llegará un mail a la brevedad con la factura de la misma.',
+        icon: 'success'
+   });
 }
 const envioGratis = () =>{
     Swal.fire({
@@ -136,6 +146,7 @@ const envioGratis = () =>{
         imageAlt: 'Custom image',
       })
 }
+
 
 
 

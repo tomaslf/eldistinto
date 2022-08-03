@@ -58,12 +58,20 @@ header ul li a{
 }
 .offcanvas{
     width: 500px;
+    background-color:  #DAE2B6;
 }
 #botonFinalizar {
     margin-left: 150px;
 }
+.divProductos{
+    margin-left: 40px;
+    background-color: rgba(196, 141, 21, 0.24);
+    width: 400px;
+    height: auto;
+}
 #total{
-    background-color: rgba(196, 141, 21, 0.671);
+    
+    font-size: 20px;
 }
 #botones{
     display: flex;
