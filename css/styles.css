@@ -54,20 +54,19 @@ header ul li a{
     z-index: 100;
 }
 #canasta{
-    margin-left: 125px;
+    margin-left: 90px;
 }
 .offcanvas{
-    width: 500px;
     background-color:  #DAE2B6;
 }
 #botonFinalizar {
-    margin-left: 150px;
+    margin-left: 100px;
 }
 .divProductos{
-    margin-left: 40px;
     background-color: rgba(196, 141, 21, 0.24);
-    width: 400px;
+    width: auto;
     height: auto;
+    border-radius: 10px;
 }
 #total{
     

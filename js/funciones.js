@@ -8,7 +8,19 @@ const agregarAlCarrito= (indice) => {
     (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1,  productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());     
 }
 
+const sumarUno = (indice) =>{
+    recibirProductosDelCarritoLS();
+    
+      
+    let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
+        return elemento.id === productosElegidos[indice].id;                   
+    })
+    
+    let agregarProducto = productos[indice];
+    (indiceEncontrado === -1) ? (agregarProducto.cantidad = 1, productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad += 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
 
+
+}
 
 const sumarAlCarrito = () =>{
     let productos = recibirProductosDelCarritoLS();
