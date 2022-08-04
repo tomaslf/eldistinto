@@ -52,7 +52,33 @@ const eliminarDelCarrito = (indice) =>{
     generarCarrito();  
 }
 
+let ordenar = document.getElementById("ordenarProductos");
 
+ordenar.addEventListener("change", acomodar);
+
+function acomodar () {
+   let acomodando = ordenar.value;
+    if (acomodando === "ascendente"){
+        crearCardsDeProductos(
+            productos.sort((a, b) => {
+                if (a.precio > b.precio) {
+                    return -1;
+                }
+                if (a.precio < b.precio) {
+                    return 1;
+                }
+                return 0;
+            })
+        );
+    }
+
+document.getElementById("cards").innerHTML = crearCardsDeProductos();
+
+
+
+
+   
+}
 
 
 // FUNCIONES DE STORAGE
