@@ -51,12 +51,6 @@ const eliminarDelCarrito = (indice) =>{
     sumarAlCarrito();
     generarCarrito();  
 }
-    
-const buscarProductoId = (indice) =>{
-    let productos = recibirProductosLS();
-    return productos.find(element => element.indice == indice);
-}
-
 
 
 

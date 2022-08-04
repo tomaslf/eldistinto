@@ -34,6 +34,10 @@ header ul li a{
 .card{
     background-color: #DFE8CC;
     height: 500px;
+    transition: 0.5s;
+}
+.card:hover{
+    transform: scale(1.1, 1.1)
 }
 
 .card-text{

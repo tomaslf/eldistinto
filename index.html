@@ -111,7 +111,13 @@
           <div id="nuestrosProductos" class="col-md-8 offset-md-2">
               <div class="text-center mt-5">
                 <h1 >NUESTROS PRODUCTOS</h1>
-              </div>      
+              </div>
+              <select class="form-select form-select-md mb-3 mt-3" id="ordenar" aria-label=".form-select-lg example">
+                <option selected>Ordenar por</option>
+                <option value="ascendente">Precio Ascendente</option>
+                <option value="descendente">Precio Descendente</option>
+                <option value="nombre">Nombre de Producto</option>
+              </select>      
                 <!-- Cards de productos -->
               <div id="cards" data-aos="fade-up" class="row row-cols-1 row-cols-md-2 mb-5 text-center"></div>
                 <!-- Carritos de productos elegidos -->
