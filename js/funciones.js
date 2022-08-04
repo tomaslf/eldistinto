@@ -52,9 +52,6 @@ const eliminarDelCarrito = (indice) =>{
     generarCarrito();  
 }
 
-
-
-
 // FUNCIONES DE STORAGE
 const recibirProductosLS= () =>{
     return JSON.parse(localStorage.getItem("productos")) || productosElegidos;

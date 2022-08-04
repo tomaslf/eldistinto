@@ -12,8 +12,10 @@ const productosElegidos = [];
 
 const crearCardsDeProductos = (data) =>{
     productos = data;
+    
     productos.forEach((producto,indice) => {
         let div = document.createElement("div");
+        
         div.className = "col";
         div .innerHTML = `<div class="card mt-4">                       
                         <img class="card-img-top"  src='images/${producto.imagen} 'width=150 height=300>
@@ -25,7 +27,7 @@ const crearCardsDeProductos = (data) =>{
         document.getElementById("cards").appendChild(div);
        
         });
-
+        
 }
 
     let productosAgregados = document.getElementById("productosElegidos");
