@@ -23,8 +23,7 @@ header ul li a{
     color: black;
 }
 #nosotros{
-    font-size: 20px;
-    
+    font-size: 20px;    
 }
 #nosotros p{
     font-weight: lighter ;
@@ -33,15 +32,11 @@ header ul li a{
 }
 .card{
     background-color: #DFE8CC;
-    height: 500px;
-   
+    height: 500px;   
 }
-
-
 .card-text{
     font-weight: bold;
 }
-
 .card a {
     background-color: rgba(196, 141, 21, 0.671);
 }
@@ -79,3 +74,7 @@ header ul li a{
     display: flex;
     justify-content: center;
 }
+.form-select{
+    background-color: #F7EDDB;
+}
+
