@@ -34,11 +34,9 @@ header ul li a{
 .card{
     background-color: #DFE8CC;
     height: 500px;
-    transition: 0.5s;
+   
 }
-.card:hover{
-    transform: scale(1.1, 1.1)
-}
+
 
 .card-text{
     font-weight: bold;
@@ -52,7 +50,7 @@ header ul li a{
 }
 #botonCarrito{
     position: fixed;
-    margin-right:20px;
+    margin-right:40px;
     line-height: 55px;
     bottom: 100px;
     z-index: 100;
@@ -62,6 +60,7 @@ header ul li a{
 }
 .offcanvas{
     background-color:  #DAE2B6;
+    width: 410px;
 }
 #botonFinalizar {
     margin-left: 100px;
