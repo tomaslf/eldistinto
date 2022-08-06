@@ -29,14 +29,12 @@ const crearCardsDeProductos = (data) =>{
         });
         
 }
-
     let productosAgregados = document.getElementById("productosElegidos");
        productosAgregados.innerHTML = `<img id="canasta"  class="mt-5" src='images/canastavacia.png'width=200 height=200>
                                         <div class="alert alert-danger text-center" role="alert">
                                         Tu carrito no tiene ningun producto
                                         </div>
-                                        `;
-       
+                                        `;      
 const generarCarrito = () =>{  
 
     productosAgregados = document.getElementById("productosElegidos");
@@ -48,9 +46,12 @@ const generarCarrito = () =>{
                 productosAgregados = document.createElement("div");
                 productosAgregados.innerHTML = `
                                                 <div class="divProductos">                                                
-                                                <p class= "mt-3 p-1"> <img class="ms-2" src='images/${producto.imagen} 'width=70 height=70> ${producto.producto}<button type="button" class="btn-sm btn-secondary ms-1 me-1" onclick="restarUno(${indice})">-</button><strong> ${producto.cantidad}</strong><button type="button" class="btn-sm btn-secondary me-1 ms-2" onclick="sumarUno(${indice})">+</button>  
+                                                <p class= "text-center mt-2"> <img class="me-3" src='images/${producto.imagen} 'width=70 height=70><strong>${producto.producto}
+                                                <div class="text-center">
+                                                <button type="button" class="btn-sm btn-secondary ms-1 me-1" onclick="restarUno(${indice})">-</button><strong> ${producto.cantidad}</strong><button type="button" class="btn-sm btn-secondary me-1 ms-2" onclick="sumarUno(${indice})">+</button>
+                                                </div>  
                                                 <div class="text-center"> SubTotal de $ ${producto.precio * producto.cantidad}
-                                                <a class="btn btn-sm btn-danger mb-2 " onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p></div>
+                                                <a class="btn btn-sm btn-danger mt-2 mb-2 " onclick="eliminarDelCarrito(${indice})"><img src='images/trash.png'width=15 height=15></a></p></div>
                                                 
                                                 </div>`;
 
@@ -105,7 +106,6 @@ const generarCarrito = () =>{
 }
 }
 // ALERTAS
-
 const sumarEnvio = () =>{
     Swal.fire({
         text: 'Agregaste a tu pedido el envío. Su costo es $200.',

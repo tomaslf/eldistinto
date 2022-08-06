@@ -61,10 +61,14 @@ header ul li a{
     margin-left: 100px;
 }
 .divProductos{
+    margin-left: 10px;
     background-color: rgba(196, 141, 21, 0.24);
-    width: auto;
+    width: 350px;
     height: auto;
     border-radius: 10px;
+}
+.divProductos p{
+    margin-bottom: 0px;
 }
 #total{
     
