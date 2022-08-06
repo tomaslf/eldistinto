@@ -102,7 +102,7 @@ const generarCarrito = () =>{
                 document.getElementById("productosElegidos").appendChild(productosAgregados);
 }
 }
-
+// ALERTAS
 
 const sumarEnvio = () =>{
     Swal.fire({
@@ -124,7 +124,7 @@ async function finalizarCompra () {
         title: 'Ingresa tu email',
         input: 'email',
         inputLabel: 'Aqui enviaremos la factura de tu compra',
-        inputPlaceholder: 'Ingresa tu mail'
+        inputPlaceholder: 'Ingresa tu email'
       })  
     gracias();  
     vaciarCarrito();
@@ -133,7 +133,7 @@ async function finalizarCompra () {
 const gracias = () =>{
     Swal.fire({
         title:  'Gracias por tu compra.',
-        text: ' Te llegará un mail a la brevedad con la factura de la misma.',
+        text: 'Te llegará un mail a la brevedad con la factura de la misma.',
         icon: 'success'
    });
 }

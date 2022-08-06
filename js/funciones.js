@@ -1,5 +1,6 @@
 // FUNCIONES DEL CARRITO
 const agregarAlCarrito= (indice) => {
+    toastAgregoProducto();
     recibirProductosDelCarritoLS();   
     let indiceEncontrado = productosElegidos.findIndex((elemento)=>{
         return elemento.id === productos[indice].id;                   
@@ -22,7 +23,7 @@ const restarUno = (indice) =>{
         return elemento.id === productosElegidos[indice].id;                   
     })    
     let agregarProducto = productos[indice];
-    (indiceEncontrado === -1) ? (agregarProducto.cantidad -=1, productosElegidos.push(agregarProducto),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad -= 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
+    (productosElegidos[indiceEncontrado].cantidad === 1) ? (eliminarDelCarrito(),  guardarProductosDelCarritoLS(productosElegidos),generarCarrito()) : (productosElegidos[indiceEncontrado].cantidad -= 1, guardarProductosDelCarritoLS(productosElegidos),generarCarrito());
 }
 
 const sumarAlCarrito = () =>{
@@ -52,11 +53,31 @@ const eliminarDelCarrito = (indice) =>{
     generarCarrito();  
 }
 
-let ordenar = document.getElementById("ordenarProductos");
+const toastAgregoProducto = () =>{
+    Toastify({
+
+        text: "Agregaste un producto",
+        
+        duration: 1000,
+        offset: {
+            x: 10, 
+            y: 150
+          },
+          style: {
+            background: "linear-gradient(to right, #DAE2B6, rgba(196, 141, 21, 0.900) )",
+            color: "black",
+          }
+        
+        }).showToast();
+}
+
+//ORDENAR PRODUCTOS
+let ordenar = document.getElementById("ordenar");
 
 ordenar.addEventListener("change", acomodar);
 
 function acomodar () {
+document.getElementById("cards").innerHTML = "";
    let acomodando = ordenar.value;
     if (acomodando === "ascendente"){
         crearCardsDeProductos(
@@ -69,17 +90,44 @@ function acomodar () {
                 }
                 return 0;
             })
-        );
-    }
+)} else if (ordenar.value == "descendente") {
+    crearCardsDeProductos(
+        productos.sort((a, b) => {
+            if (a.precio < b.precio) {
+                return -1;
+            }
+            if (a.precio > b.precio) {
+                return 1;
+            }
+            return 0;
+        })
+    );
 
-document.getElementById("cards").innerHTML = crearCardsDeProductos();
-
-
-
-
-   
-}
-
+} else if (ordenar.value == "nombre") {
+    crearCardsDeProductos(
+        productos.sort((a, b) => {
+            if (a.producto == b.producto) {
+                return 0;
+            }
+            if (a.producto < b.producto) {
+                return -1;
+            }
+            return 1;
+        })
+    );
+} else if (ordenar.value == "todos") {
+    crearCardsDeProductos(
+        productos.sort((a, b) => {
+            if (a.id < b.id) {
+                return -1;
+            }
+            if (a.id > b.id) {
+                return 1;
+            }
+            return 0;
+        })
+    );
+ }};
 
 // FUNCIONES DE STORAGE
 const recibirProductosLS= () =>{
