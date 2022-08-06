@@ -136,8 +136,11 @@ const gracias = () =>{
     Swal.fire({
         title:  'Gracias por tu compra.',
         text: 'Te llegará un mail a la brevedad con la factura de la misma.',
-        icon: 'success'
-   });
+        icon: 'success',
+        
+   }).then(function() {
+    window.location = "index.html";
+})
 }
 const envioGratis = () =>{
     Swal.fire({
