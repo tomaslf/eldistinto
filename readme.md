@@ -4,4 +4,4 @@
 
 ## Demo
 
-Para probar el sitio puede ingresar al siguiente [link](https://tomaslf.github.io/paginawebsdy/).
+Para probar el sitio puede ingresar al siguiente [link](https://tomaslf.github.io/eldistinto/).
