@@ -1,4 +1,4 @@
-<img src="images/logopng.png" width=250px height=80px>
+<img src="images/logopng.png" width=250px height=150px>
 
 # Proyecto Panadería El Distinto
 
